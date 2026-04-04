@@ -39,7 +39,7 @@ else
     git clone https://github.com/michael-lehn/neovim-config-lsp "$repo_dir"
 fi
 
-echo "🔧 Cloning or updateing abc-llvm repository"
+echo "🔧 Cloning or updating abc-llvm repository"
 repo_dir="abc-llvm"
 if [ -d "$repo_dir/.git" ]; then
     git -C "$repo_dir" pull
@@ -64,7 +64,7 @@ cd abc-llvm && make && sudo make install
 
 if [ ! -e "$HOME/.clang-forma" ] && [ ! -L ""$HOME/.clang-format ]; then
     echo "📦 Linking clang format"
-    ln -s "$PWD/clang-format" "$PWD/clang-format"
+    ln -s "$PWD/clang-format" "~/.clang-format"
 fi
 
 
