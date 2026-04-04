@@ -12,6 +12,7 @@ if ! command -v llvm-config-21 >/dev/null 2>&1; then
 fi
 echo "📦 Installing llvm (version 21)"
 sudo apt install -y make g++ npm rustup zip clang-format black konsole curl
+sudo apt install -y python3.12-venv
 
 echo "📦 Installing ruff"
 sudo snap install ruff --classic
