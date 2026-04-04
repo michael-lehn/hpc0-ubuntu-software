@@ -10,7 +10,7 @@ chmod +x llvm.sh
 sudo ./llvm.sh 21
 
 echo "📦 Installing llvm (version 21)"
-sudo apt install -y make g++ npm rustup zip clang-format black
+sudo apt install -y make g++ npm rustup zip clang-format black konsole
 
 echo "📦 Installing ruff"
 sudo snap install ruff --classic
@@ -60,3 +60,32 @@ ln -s "$PWD"/neovim-config-lsp ~/.config/nvim
 
 echo "📦 Building abc compiler"
 cd abc-llvm && make && sudo make install
+
+echo "🔧 sourcing ~/.bashrc"
+. ~/.bashrc
+
+
+FONT_NAME="JetBrainsMono"
+VERSION="3.2.1"
+URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v${VERSION}/${FONT_NAME}.zip"
+
+INSTALL_DIR="$HOME/.local/share/fonts"
+
+mkdir -p "$INSTALL_DIR"
+cd /tmp
+
+# Nur herunterladen, wenn noch nicht vorhanden
+if ! fc-list | grep -qi "JetBrainsMono Nerd Font"; then
+    echo "Installing Nerd Font: $FONT_NAME"
+
+    wget -q "$URL" -O nerd-font.zip
+    unzip -q nerd-font.zip -d nerd-font
+
+    cp nerd-font/*.ttf "$INSTALL_DIR"/
+
+    fc-cache -f
+
+    echo "Nerd Font installed."
+else
+    echo "Nerd Font already installed."
+fi
