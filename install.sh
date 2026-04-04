@@ -19,6 +19,14 @@ sudo apt install -y autoconf-archive
 sudo apt install -y pkg-config
 sudo apt install -y libncurses5-dev
 
+if [ "$SESSION_TYPE" = "wayland" ]; then
+    echo "📦 Installing wl-clipboard..."
+    sudo apt install -y wl-clipboard
+else
+    echo "📦 Installing xclip (fallback for X11 or unknown)..."
+    sudo apt install -y xclip
+fi
+
 #sudo apt install -y texlive-full
 sudo apt install -y \
   texlive-latex-recommended \
