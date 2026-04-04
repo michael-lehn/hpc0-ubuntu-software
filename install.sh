@@ -18,7 +18,7 @@ sudo apt install -y libtool
 sudo apt install -y autoconf-archive
 sudo apt install -y pkg-config
 sudo apt install -y libncurses5-dev
-#sudo apt install -y texlive-full
+sudo apt install -y texlive-full
 
 echo "📦 Installing ruff"
 sudo snap install ruff --classic
