@@ -71,19 +71,22 @@ ln -s "$PWD"/neovim-config-lsp ~/.config/nvim
 echo "📦 Building abc compiler"
 (cd abc-llvm && make && sudo make install)
 
-if [ ! -e "$HOME/.clang-forma" ] && [ ! -L "$HOME/.clang-format" ]; then
+if [ ! -e "$HOME/.clang-format" ] && [ ! -L "$HOME/.clang-format" ]; then
     echo "📦 Linking clang format"
     echo ln -s "$PWD/clang-format" "~/.clang-format"
     ln -s "$PWD/clang-format" ~/.clang-format
 fi
 
+echo "🔧 Cloning or updating finalcut repository"
+repo_dir="finalcut"
+if [ -d "$repo_dir/.git" ]; then
+    git -C "$repo_dir" pull
+else
+    git clone https://github.com/michael-lehn/finalcut.git
+fi
+
 echo "📦 Building finalcut library"
-( git clone https://github.com/michael-lehn/finalcut \
-    && cd finalcut \
-    && autoreconf --install --force \
-    && ./configure --prefix=/usr/local \
-    && make \
-    && sudo make install)
+(cd finalcut && autoreconf --install --force && ./configure --prefix=/usr/local && make && sudo make install)
 
 echo "📦 Installing ULM generator"
 ( git clone https://github.com/michael-lehn/ulm-generator.git \

@@ -21,7 +21,7 @@ into it, run `./install`, and source `~/.bashrc`:
 git clone https://github.com/michael-lehn/hpc0-ubuntu-software.git
 cd hpc0-ubuntu-software
 ./install
-. ~/.bashrc
+source ~/.bashrc
 ```
 
 ### If you have already cloned the repository before
