@@ -13,6 +13,12 @@ fi
 echo "📦 Installing llvm (version 21)"
 sudo apt install -y make g++ npm rustup zip clang-format black konsole curl
 sudo apt install -y python3.12-venv
+sudo apt install -y autoconf
+sudo apt install -y libtool
+sudo apt install -y autoconf-archive
+sudo apt install -y pkg-config
+sudo apt install -y libncurses5-dev
+#sudo apt install -y texlive-full
 
 echo "📦 Installing ruff"
 sudo snap install ruff --classic
@@ -71,6 +77,24 @@ if [ ! -e "$HOME/.clang-forma" ] && [ ! -L "$HOME/.clang-format" ]; then
     ln -s "$PWD/clang-format" ~/.clang-format
 fi
 
+echo "📦 Building finalcut library"
+( git clone https://github.com/michael-lehn/finalcut \
+    && cd finalcut \
+    && autoreconf --install --force \
+    && ./configure --prefix=/usr/local \
+    && make \
+    && sudo make install)
+
+echo "📦 Installing ULM generator"
+( git clone https://github.com/michael-lehn/ulm-generator.git \
+    && cd ulm-generator \
+    && sudo make install)
+
+echo "📦 Testing ULM generator"
+ulm-generator --fetch ulm-ice40.isa
+ulm-generator --install ulm-ice40.isa
+echo "10100020202100001402000004000004302000001211000105FFFFFB0141000068656C6C6F2C20776F726C64210A00" > hello
+ulm hello
 
 FONT_NAME="JetBrainsMono"
 VERSION="3.2.1"
