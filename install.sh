@@ -48,6 +48,10 @@ grep -q 'HPC0_PATH_CARGO' ~/.bashrc || \
 grep -q 'HPC0_ALIAS_VIM' ~/.bashrc || \
     echo 'alias vim=nvim	# HPC0_ALIAS_VIM' >> ~/.bashrc
 
+grep -q 'HPC0_SETO' ~/.bashrc || \
+    echo 'set -o vi	# HPC0_SETO' >> ~/.bashrc
+
+
 echo "🔧 Cloning or updateing neovim config repository"
 repo_dir="neovim-config-lsp"
 if [ -d "$repo_dir/.git" ]; then
