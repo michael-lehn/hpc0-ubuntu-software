@@ -17,9 +17,9 @@ echo "📦 Installing ruff"
 sudo snap install ruff --classic
 
 echo "📦 Installing nvim"
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod +x nvim.appimage
-sudo mv nvim.appimage /usr/local/bin/nvim
+curl -LO https://github.com/neovim/neovim/releases/download/v0.12.0/nvim-linux-arm64.appimage
+chmod u+x nvim-linux-x86_64.appimage
+sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
 
 echo "📦 Installing cargo"
 rustup default stable
