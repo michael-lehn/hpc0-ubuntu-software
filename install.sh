@@ -4,11 +4,12 @@ sudo apt update
 echo "🔧 Upgrading packages..."
 sudo apt update
 
-echo "📦 Installing llvm (version 21)"
-wget https://apt.llvm.org/llvm.sh
-chmod +x llvm.sh
-sudo ./llvm.sh 21
-
+if ! command -v llvm-config-21 >/dev/null 2>&1; then
+    echo "📦 Installing llvm (version 21)"
+    wget https://apt.llvm.org/llvm.sh
+    chmod +x llvm.sh
+    sudo ./llvm.sh 21
+fi
 echo "📦 Installing llvm (version 21)"
 sudo apt install -y make g++ npm rustup zip clang-format black konsole curl
 
