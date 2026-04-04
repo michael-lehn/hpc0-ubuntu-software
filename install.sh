@@ -61,6 +61,10 @@ ln -s "$PWD"/neovim-config-lsp ~/.config/nvim
 echo "📦 Building abc compiler"
 cd abc-llvm && make && sudo make install
 
+if [ ! -e "$HOME/.clang-forma" ] && [ ! -L ""$HOME/.clang-format ]; then
+    echo "📦 Linking clang format"
+    ln -s "$PWD/clang-format" "$PWD/clang-format"
+fi
 
 
 FONT_NAME="JetBrainsMono"
