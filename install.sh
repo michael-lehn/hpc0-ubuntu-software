@@ -94,7 +94,7 @@ else
 fi
 
 echo "📦 Building finalcut library"
-(cd finalcut && autoreconf --install --force && ./configure --prefix=/usr/local && make && sudo make install)
+(cd finalcut && autoreconf --install --force; autoreconf --install --force  && ./configure --prefix=/usr/local && make && sudo make install)
 
 echo "🔧 Cloning or updating ulm-generator repository"
 repo_dir="ulm-generator"
