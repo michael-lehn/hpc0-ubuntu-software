@@ -97,14 +97,5 @@ else
     echo "Nerd Font already installed."
 fi
 
-if grep -qi microsoft /proc/version 2>/dev/null; then
-    echo "📋 Installing win32yank (WSL detected)"
-    wget https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip
-    unzip win32yank-x64.zip
-    chmod +x win32yank.exe
-    mkdir -p "$HOME/.local/bin"
-    mv win32yank.exe "$HOME/.local/bin/"
-fi
-
 echo "🔧 sourcing ~/.bashrc"
 . ~/.bashrc

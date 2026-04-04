@@ -8,7 +8,7 @@ High Performance Computing)** course on Ubuntu.
 Open a new terminal, copy the following line, and press Enter:
 
 ```
-sudo apt install -y git && ( [ -d hpc0-ubuntu-software/.git ] && cd hpc0-ubuntu-software && git pull && ./install.sh || git clone https://github.com/michael-lehn/hpc0-ubuntu-software.git && cd hpc0-ubuntu-software && ./install)
+sudo apt install -y git && ( [ -d hpc0-ubuntu-software/.git ] && cd hpc0-ubuntu-software && git pull && ./install.sh || git clone https://github.com/michael-lehn/hpc0-ubuntu-software.git && cd hpc0-ubuntu-software && ./install.sh)
 ```
 
 ## Usage (for those who want to know what is happening)
