@@ -65,7 +65,7 @@ echo "📦 Building abc compiler"
 if [ ! -e "$HOME/.clang-forma" ] && [ ! -L "$HOME/.clang-format" ]; then
     echo "📦 Linking clang format"
     echo ln -s "$PWD/clang-format" "~/.clang-format"
-    ln -s "$PWD/clang-format" "~/.clang-format"
+    ln -s "$PWD/clang-format" ~/.clang-format
 fi
 
 
