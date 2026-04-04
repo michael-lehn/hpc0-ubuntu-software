@@ -10,7 +10,7 @@ chmod +x llvm.sh
 sudo ./llvm.sh 21
 
 echo "📦 Installing llvm (version 21)"
-sudo apt install -y make g++ npm rustup zip clang-format black konsole
+sudo apt install -y make g++ npm rustup zip clang-format black konsole curl
 
 echo "📦 Installing ruff"
 sudo snap install ruff --classic
@@ -61,8 +61,6 @@ ln -s "$PWD"/neovim-config-lsp ~/.config/nvim
 echo "📦 Building abc compiler"
 cd abc-llvm && make && sudo make install
 
-echo "🔧 sourcing ~/.bashrc"
-. ~/.bashrc
 
 
 FONT_NAME="JetBrainsMono"
@@ -89,3 +87,6 @@ if ! fc-list | grep -qi "JetBrainsMono Nerd Font"; then
 else
     echo "Nerd Font already installed."
 fi
+
+echo "🔧 sourcing ~/.bashrc"
+. ~/.bashrc
