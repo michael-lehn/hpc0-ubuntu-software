@@ -10,7 +10,7 @@ chmod +x llvm.sh
 sudo ./llvm.sh 21
 
 echo "📦 Installing llvm (version 21)"
-sudo apt install make g++ npm rustup zip clang-format black
+sudo apt install -y make g++ npm rustup zip clang-format black
 
 echo "📦 Installing ruff"
 sudo snap install ruff --classic
@@ -56,7 +56,7 @@ if [ -e "$nvim_dir" ] || [ -L "$nvim_dir" ]; then
     done
     mv "$nvim_dir" "${nvim_dir}.bak$i"
 fi
-ln -s neovim-config-lsp ~/.config/nvim
+ln -s "$PWD"/neovim-config-lsp ~/.config/nvim
 
 echo "📦 Building abc compiler"
 cd abc-llvm && make && sudo make install
