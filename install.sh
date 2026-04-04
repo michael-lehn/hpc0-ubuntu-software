@@ -88,10 +88,16 @@ fi
 echo "📦 Building finalcut library"
 (cd finalcut && autoreconf --install --force && ./configure --prefix=/usr/local && make && sudo make install)
 
+echo "🔧 Cloning or updating ulm-generator repository"
+repo_dir="ulm-generator"
+if [ -d "$repo_dir/.git" ]; then
+    git -C "$repo_dir" pull
+else
+    git clone https://github.com/michael-lehn/ulm-generator.git
+fi
+
 echo "📦 Installing ULM generator"
-( git clone https://github.com/michael-lehn/ulm-generator.git \
-    && cd ulm-generator \
-    && sudo make install)
+(cd ulm-generator && sudo make install)
 
 echo "📦 Testing ULM generator"
 ulm-generator --fetch ulm-ice40.isa
