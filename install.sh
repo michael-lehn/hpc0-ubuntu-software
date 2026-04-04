@@ -1,0 +1,62 @@
+echo "🔧 Updating package list..."
+sudo apt update
+
+echo "🔧 Upgrading packages..."
+sudo apt update
+
+echo "📦 Installing llvm (version 21)"
+wget https://apt.llvm.org/llvm.sh
+chmod +x llvm.sh
+sudo ./llvm.sh 21
+
+echo "📦 Installing llvm (version 21)"
+sudo apt install make g++ npm rustup zip clang-format black
+
+echo "📦 Installing ruff"
+sudo snap install ruff --classic
+
+echo "📦 Installing nvim"
+sudo snap install nvim --classic
+
+echo "📦 Installing cargo"
+rustup default stable
+
+echo "📦 Installing tree-sitter command line interface"
+cargo install --locked tree-sitter-cli
+
+grep -q 'HPC0_PATH_CARGO' ~/.bashrc || \
+    echo 'PATH=$PATH:~/.cargo/bin      # HPC0_PATH_CARGO' >> ~/.bashrc
+
+grep -q 'HPC0_ALIAS_VIM' ~/.bashrc || \
+    echo 'alias vim=nvim	# HPC0_ALIAS_VIM' >> ~/.bashrc
+
+echo "🔧 Cloning or updateing neovim config repository"
+repo_dir="neovim-config-lsp"
+if [ -d "$repo_dir/.git" ]; then
+    git -C "$repo_dir" pull
+else
+    git clone https://github.com/michael-lehn/neovim-config-lsp "$repo_dir"
+fi
+
+echo "🔧 Cloning or updateing abc-llvm repository"
+repo_dir="abc-llvm"
+if [ -d "$repo_dir/.git" ]; then
+    git -C "$repo_dir" pull
+else
+    git clone https://github.com/michael-lehn/abc-llvm.git
+fi
+
+echo "📦 Linking neovim config"
+mkdir -p $HOME/.config
+nvim_dir="$HOME/.config/nvim"
+if [ -e "$nvim_dir" ] || [ -L "$nvim_dir" ]; then
+    i=1
+    while [ -e "${nvim_dir}.bak$i" ] || [ -L "${nvim_dir}.bak$i" ]; do
+        i=$((i+1))
+    done
+    mv "$nvim_dir" "${nvim_dir}.bak$i"
+fi
+ln -s neovim-config-lsp ~/.config/nvim
+
+echo "📦 Building abc compiler"
+cd abc-llvm && make && sudo make install
