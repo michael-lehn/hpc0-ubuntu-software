@@ -60,7 +60,7 @@ fi
 ln -s "$PWD"/neovim-config-lsp ~/.config/nvim
 
 echo "📦 Building abc compiler"
-cd abc-llvm && make && sudo make install
+(cd abc-llvm && make && sudo make install)
 
 if [ ! -e "$HOME/.clang-forma" ] && [ ! -L "$HOME/.clang-format" ]; then
     echo "📦 Linking clang format"
