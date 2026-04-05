@@ -21,4 +21,4 @@ Get-ChildItem -Path $FontSourceDir -Filter *.ttf | ForEach-Object {
     }
 }
 
-# Read-Host "Press Enter to close"
+Read-Host "Press Enter to close"

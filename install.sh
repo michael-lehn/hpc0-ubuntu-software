@@ -272,7 +272,7 @@ clone_or_pull $git_repos
 FC_DIR="$(clone_or_pull_target_dir $git_repos)"
 (cd "$FC_DIR" && autoreconf --install --force; \
     autoreconf --install --force \
-    && ./configure --prefix=/usr/local && make && make install)
+    && ./configure --prefix=/usr/local && make && sudo make install)
 
 
 #-------------------------------------------------------------------------------
@@ -283,7 +283,7 @@ echo "📦 Building and testing ULM generator"
 git_repos=https://github.com/michael-lehn/ulm-generator.git
 clone_or_pull $git_repos
 UG_DIR="$(clone_or_pull_target_dir $git_repos)"
-(cd "$UG_DIR" && make install)
+(cd "$UG_DIR" && sudo make install)
 
 ulm-generator --fetch ulm-ice40.isa
 ulm-generator --install ulm-ice40.isa
