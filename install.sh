@@ -148,7 +148,7 @@ install_nerd_font_wsl() {
 if [ -n "$ZSH_VERSION" ]; then
     PROFILE="$HOME/.zprofile"
 else
-    PROFILE="$HOME/.bash_profile"
+    PROFILE="$HOME/.bashrc"
 fi
 
 #-------------------------------------------------------------------------------
