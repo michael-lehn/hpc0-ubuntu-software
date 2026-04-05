@@ -260,7 +260,7 @@ echo "📦 Building and installing abc compiler"
 git_repos=https://github.com/michael-lehn/abc-llvm.git
 clone_or_pull $git_repos
 ABC_DIR="$(clone_or_pull_target_dir $git_repos)"
-(cd "$ABC_DIR" && make && make install)
+(cd "$ABC_DIR" && make && sudo make install)
 
 #-------------------------------------------------------------------------------
 # Build finalcut
