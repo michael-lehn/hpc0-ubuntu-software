@@ -2,7 +2,7 @@ echo "🔧 Updating package list..."
 sudo apt update
 
 echo "🔧 Upgrading packages..."
-sudo apt update
+sudo apt upgrade
 
 if ! command -v llvm-config-21 >/dev/null 2>&1; then
     echo "📦 Installing llvm (version 21)"
