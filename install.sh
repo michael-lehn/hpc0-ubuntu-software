@@ -162,6 +162,7 @@ echo "🔧 Upgrading packages..."
 sudo apt -y upgrade
 
 install_if_missing make
+install_if_missing eza
 install_if_missing g++
 install_if_missing npm
 install_if_missing rustup
@@ -241,6 +242,7 @@ safe_symlink "$NANO_DIR"/nano "$HOME/.nano"
 #-------------------------------------------------------------------------------
 echo "📦 Configure shell to use vi mode"
 add_to_file 'set -o vi' "$PROFILE"
+add_to_file "alias ls=eza" "$PROFILE"
 
 #-------------------------------------------------------------------------------
 # Configure clang-format
@@ -303,5 +305,6 @@ echo "🔧 sourcing ${PROFILE}"
 
 install_nerd_font_linux
 if is_wsl; then
+    ./wsl-konsole.sh
     install_nerd_font_wsl
 fi
