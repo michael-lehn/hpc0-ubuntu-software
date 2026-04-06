@@ -15,7 +15,7 @@ sudo apt install -y git && ( [ -d hpc0-ubuntu-software/.git ] && cd hpc0-ubuntu-
 
 This script installs the main software and tools used in the HPC0 course:
 
-- `git`, GNU `make`, and the GNU C/C++ compiler
+- `git`, GNU `make`, the GNU C/C++ compiler, and the LLVM toolchain (including libraries)
 - The ABC compiler and the ULM generator
 - `konsole` (from the KDE project), which I consider the best terminal emulator
   on Linux
@@ -34,11 +34,8 @@ changes are given below. For now, here is what is modified:
 
 ### If you do not like these changes
 
-- All modifications to `~/.bashrc` are marked with the comment `HPC0`  
-  → you can remove these lines at any time
-- If you want to restore your previous Neovim configuration:  
-  a backup has been created in `~/.config` with a name like  
-  `nvim.bak<unique-id>`
+- All modifications to `~/.bashrc` are marked with the comment `HPC0`  → you can remove these lines at any time
+- If you want to restore your previous Neovim configuration: a backup has been created in `~/.config` with a name like  `nvim.bak<unique-id>`
 
 ## For WSL users
 
