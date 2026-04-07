@@ -39,12 +39,9 @@ changes are given below. For now, here is what is modified:
 
 ## For WSL users
 
-If you are not using Linux via dual boot, you should first install WSL.  
-After that, you can simply run `./install.sh` as described above.  
-For most purposes, this is all you need.
+If you are not using Linux via dual boot, you should first install WSL.  After that, you can simply run `./install.sh` as described above.  For most purposes, this is all you need.
 
-However, if you want to use Nerd Fonts, there are a few additional things to be
-aware of:
+However, if you want to use Nerd Fonts, there are a few additional things to be aware of:
 
 1. At the end of the installation, the script will ask whether you also want to
    install Nerd Fonts on Windows. You have 60 seconds to respond.
