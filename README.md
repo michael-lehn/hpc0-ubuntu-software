@@ -83,4 +83,7 @@ source ~/.bashrc
 ```
 ## Credits
 
-Thanks to Theo for helping to set up a clean and reliable Ubuntu installation process.
+## Credits
+
+Thanks to Theo ([@dreckshippy](https://github.com/dreckshippy)) for helping to
+set up a clean and reliable Ubuntu installation process.
