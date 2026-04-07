@@ -306,5 +306,7 @@ echo "🔧 sourcing ${PROFILE}"
 install_nerd_font_linux
 if is_wsl; then
     ./wsl-konsole.sh
+    ./wsl-terminal.sh
+    ./wsl-keybindings.sh
     install_nerd_font_wsl
 fi
