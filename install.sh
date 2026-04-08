@@ -205,7 +205,7 @@ install_if_missing texlive-lang-german
 install_if_missing texlive-luatex
 
 echo "📦 Installing neovim-remote (nvr)"
-pip3 install neovim-remote
+pip3 install --user --break-system-packages neovim-remote
 
 echo "📦 Installing ruff"
 sudo snap install ruff --classic
