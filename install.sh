@@ -177,6 +177,7 @@ install_if_missing libtool
 install_if_missing autoconf-archive
 install_if_missing pkg-config
 install_if_missing libncurses5-dev
+install_if_missing latexmk
 
 if [ "$SESSION_TYPE" = "wayland" ]; then
     install_if_missing wl-clipboard
