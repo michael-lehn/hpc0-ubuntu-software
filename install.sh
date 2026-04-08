@@ -171,7 +171,8 @@ install_if_missing clang-format
 install_if_missing black
 install_if_missing konsole
 install_if_missing curl
-install_if_missing python3.12-venv
+install_if_missing python3-venv
+install_if_missing python3-pip
 install_if_missing autoconf
 install_if_missing libtool
 install_if_missing autoconf-archive
