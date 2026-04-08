@@ -208,6 +208,23 @@ echo "📦 Installing neovim-remote (nvr)"
 add_to_file 'PATH=$PATH:~/.local/bin' "$PROFILE"
 source "$PROFILE"
 pip3 install --user --break-system-packages neovim-remote
+add_to_file "alias texvim='SOCKET=/tmp/nvim; rm -f \$SOCKET; nvim --listen \$SOCKET'" "$PROFILE"
+mkdir -p ~/.config
+if command -v kwriteconfig5 >/dev/null 2>&1; then
+    kwriteconfig5 --file okularpartrc --group "Core General" --key EditorType "Custom"
+    kwriteconfig5 --file okularpartrc --group "Core General" --key ExternalEditor "nvr --servername /tmp/nvim --remote +%l %f"
+elif command -v kwriteconfig6 >/dev/null 2>&1; then
+    kwriteconfig6 --file okularpartrc --group "Core General" --key EditorType "Custom"
+    kwriteconfig6 --file okularpartrc --group "Core General" --key ExternalEditor "nvr --servername /tmp/nvim --remote +%l %f"
+else
+    cat >> ~/.config/okularpartrc <<'EOF'
+
+[Core General]
+EditorType=Custom
+ExternalEditor=nvr --servername /tmp/nvim --remote +%l %f
+EOF
+fi
+
 
 echo "📦 Installing ruff"
 sudo snap install ruff --classic
