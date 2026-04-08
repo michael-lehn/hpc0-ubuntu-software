@@ -205,6 +205,8 @@ install_if_missing texlive-lang-german
 install_if_missing texlive-luatex
 
 echo "📦 Installing neovim-remote (nvr)"
+add_to_file 'PATH=$PATH:~/.local/bin' "$PROFILE"
+source "$PROFILE"
 pip3 install --user --break-system-packages neovim-remote
 
 echo "📦 Installing ruff"
@@ -299,13 +301,6 @@ ulm-generator --fetch ulm-ice40.isa
 ulm-generator --install ulm-ice40.isa
 echo "10100020202100001402000004000004302000001211000105FFFFFB0141000068656C6C6F2C20776F726C64210A00" > hello
 ulm hello
-
-#-------------------------------------------------------------------------------
-# Source profile
-#-------------------------------------------------------------------------------
-
-echo "🔧 sourcing ${PROFILE}"
-. "$PROFILE"
 
 #-------------------------------------------------------------------------------
 # Installing Nerd fonts
