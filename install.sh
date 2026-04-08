@@ -199,6 +199,7 @@ install_if_missing texlive-science
 install_if_missing texlive-fonts-recommended
 install_if_missing texlive-latex-extra
 install_if_missing texlive-pictures
+install_if_missing texlive-lang-german
 
 echo "📦 Installing ruff"
 sudo snap install ruff --classic
