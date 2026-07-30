@@ -69,7 +69,7 @@ source ~/.bashrc
 ```
 
 ### If you have already cloned the repository before
-Change into the repository, pull the latest changes, run ./install again,
+Change into the repository, pull the latest changes, run `./install` again,
 and source `~/.bashrc`:
 
 ```
@@ -78,7 +78,6 @@ git pull
 ./install
 source ~/.bashrc
 ```
-## Credits
 
 ## Credits
 
